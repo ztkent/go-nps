@@ -1,3 +1,3 @@
-module github.com/Ztkent/go-nps
+module github.com/ztkent/go-nps
 
-go 1.22.0
+go 1.23
