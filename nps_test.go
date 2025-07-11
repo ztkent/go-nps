@@ -167,7 +167,7 @@ func TestApiEndpoints(t *testing.T) {
 
 func checkResponse(t *testing.T, res interface{}, err error) {
 	if err != nil {
-		fmt.Println(fmt.Sprintf("Error: %v, Response: %v", err, res))
+		fmt.Println(fmt.Printf("Error: %v, Response: %v", err, res))
 		t.Errorf("Error: %v, Response: %v", err, res)
 	} else if res == nil {
 		fmt.Println("Expected results, got nil")
