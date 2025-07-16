@@ -2192,43 +2192,46 @@ func (api *npsApi) GetVisitorCenters(parkCode, stateCode []string, q string, lim
 	return &visitorCenterResponse, nil
 }
 
-type Webcam struct {
-	Total string `json:"total"`
-	Data  []struct {
-		Latitude      float64 `json:"latitude"`
-		URL           string  `json:"url"`
-		Longitude     float64 `json:"longitude"`
-		Status        string  `json:"status"`
-		GeometryPoiId string  `json:"geometryPoiId"`
-		StatusMessage string  `json:"statusMessage"`
-		Title         string  `json:"title"`
-		IsStreaming   bool    `json:"isStreaming"`
-		Images        []struct {
-			URL         string `json:"url"`
-			Credit      string `json:"credit"`
-			AltText     string `json:"altText"`
-			Title       string `json:"title"`
-			Description string `json:"description"`
-			Caption     string `json:"caption"`
-			Crops       []struct {
-				AspectRatio float64 `json:"aspectRatio"`
-				URL         string  `json:"url"`
-			} `json:"crops"`
-		} `json:"images"`
-		Tags         []string `json:"tags"`
-		ID           string   `json:"id"`
-		Description  string   `json:"description"`
-		RelatedParks []string `json:"relatedParks"`
-	} `json:"data"`
-	Limit string `json:"limit"`
-	Start string `json:"start"`
+type WebcamItem struct {
+	Latitude      float64 `json:"latitude"`
+	URL           string  `json:"url"`
+	Longitude     float64 `json:"longitude"`
+	Status        string  `json:"status"`
+	GeometryPoiId string  `json:"geometryPoiId"`
+	StatusMessage string  `json:"statusMessage"`
+	Title         string  `json:"title"`
+	IsStreaming   bool    `json:"isStreaming"`
+	Images        []struct {
+		URL         string `json:"url"`
+		Credit      string `json:"credit"`
+		AltText     string `json:"altText"`
+		Title       string `json:"title"`
+		Description string `json:"description"`
+		Caption     string `json:"caption"`
+		Crops       []struct {
+			AspectRatio float64 `json:"aspectRatio"`
+			URL         string  `json:"url"`
+		} `json:"crops"`
+	} `json:"images"`
+	Tags         []string `json:"tags"`
+	ID           string   `json:"id"`
+	Description  string   `json:"description"`
+	RelatedParks []struct {
+		States      string `json:"states"`
+		ParkCode    string `json:"parkCode"`
+		Designation string `json:"designation"`
+		FullName    string `json:"fullName"`
+		URL         string `json:"url"`
+		Name        string `json:"name"`
+	} `json:"relatedParks"`
 }
 
+// WebcamResponse represents the response from the /webcams endpoint
 type WebcamResponse struct {
-	Total string   `json:"total"`
-	Data  []Webcam `json:"data"`
-	Limit string   `json:"limit"`
-	Start string   `json:"start"`
+	Total string       `json:"total"`
+	Data  []WebcamItem `json:"data"`
+	Limit string       `json:"limit"`
+	Start string       `json:"start"`
 }
 
 // GetWebcams makes a GET request to the /webcams endpoint and returns the webcams.
