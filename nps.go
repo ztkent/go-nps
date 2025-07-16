@@ -549,7 +549,12 @@ type Campground struct {
 		FoodStorageLockers         string   `json:"foodStorageLockers"`
 	} `json:"amenities"`
 	Contacts struct {
-		PhoneNumbers   []interface{} `json:"phoneNumbers"`
+		PhoneNumbers []struct {
+			PhoneNumber string `json:"phoneNumber"`
+			Description string `json:"description"`
+			Extension   string `json:"extension"`
+			Type        string `json:"type"`
+		} `json:"phoneNumbers"`
 		EmailAddresses []struct {
 			Description  string `json:"description"`
 			EmailAddress string `json:"emailAddress"`
@@ -2126,7 +2131,12 @@ type VisitorCenter struct {
 	URL       string `json:"url"`
 	Longitude string `json:"longitude"`
 	Contacts  struct {
-		PhoneNumbers   []interface{} `json:"phoneNumbers"`
+		PhoneNumbers []struct {
+			PhoneNumber string `json:"phoneNumber"`
+			Description string `json:"description"`
+			Extension   string `json:"extension"`
+			Type        string `json:"type"`
+		} `json:"phoneNumbers"`
 		EmailAddresses []struct {
 			Description  string `json:"description"`
 			EmailAddress string `json:"emailAddress"`
