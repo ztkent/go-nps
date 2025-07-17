@@ -664,20 +664,63 @@ func (api *npsApi) GetCampgrounds(parkCode, stateCode []string, q string, limit,
 
 // Event represents an event in the National Park Service.
 type Event struct {
-	Category    string   `json:"category"`
-	CategoryID  string   `json:"categoryid"`
-	Date        string   `json:"date"`
-	DateEnd     string   `json:"dateend"`
-	Dates       []string `json:"dates"`
-	DateStart   string   `json:"datestart"`
-	Description string   `json:"description"`
-	EventID     string   `json:"eventid"`
-	ID          string   `json:"id"`
-	IsAllDay    string   `json:"isallday"`
-	IsFree      string   `json:"isfree"`
-	IsRecurring string   `json:"isrecurring"`
-	Location    string   `json:"location"`
-	Title       string   `json:"title"`
+	Category               string   `json:"category"`
+	CategoryID             string   `json:"categoryid"`
+	ContactEmailAddress    string   `json:"contactemailaddress"`
+	ContactName            string   `json:"contactname"`
+	ContactTelephoneNumber string   `json:"contacttelephonenumber"`
+	CreateUser             string   `json:"createuser"`
+	Date                   string   `json:"date"`
+	DateEnd                string   `json:"dateend"`
+	Dates                  []string `json:"dates"`
+	DateStart              string   `json:"datestart"`
+	DateTimeCreated        string   `json:"datetimecreated"`
+	DateTimeUpdated        string   `json:"datetimeupdated"`
+	Description            string   `json:"description"`
+	EventID                string   `json:"eventid"`
+	FeeInfo                string   `json:"feeinfo"`
+	GeometryPoiId          string   `json:"geometryPoiId"`
+	ID                     string   `json:"id"`
+	ImageIdList            string   `json:"imageidlist"`
+	Images                 []struct {
+		AltText string `json:"altText"`
+		Caption string `json:"caption"`
+		Credit  string `json:"credit"`
+		ImageId string `json:"imageId"`
+		Ordinal string `json:"ordinal"`
+		Path    string `json:"path"`
+		Title   string `json:"title"`
+		Url     string `json:"url"`
+	} `json:"images"`
+	InfoUrl             string   `json:"infourl"`
+	IsAllDay            string   `json:"isallday"`
+	IsFree              string   `json:"isfree"`
+	IsRecurring         string   `json:"isrecurring"`
+	IsRegresRequired    string   `json:"isregresrequired"`
+	Latitude            string   `json:"latitude"`
+	Location            string   `json:"location"`
+	Longitude           string   `json:"longitude"`
+	OrganizationName    string   `json:"organizationname"`
+	ParkFullName        string   `json:"parkfullname"`
+	PortalName          string   `json:"portalname"`
+	RecurrenceDateEnd   string   `json:"recurrencedateend"`
+	RecurrenceDateStart string   `json:"recurrencedatestart"`
+	RecurrenceRule      string   `json:"recurrencerule"`
+	RegresInfo          string   `json:"regresinfo"`
+	RegresUrl           string   `json:"regresurl"`
+	SiteCode            string   `json:"sitecode"`
+	SiteType            string   `json:"sitetype"`
+	SubjectName         string   `json:"subjectname"`
+	Tags                []string `json:"tags"`
+	TimeInfo            string   `json:"timeinfo"`
+	Times               []struct {
+		TimeStart    string `json:"timestart"`
+		TimeEnd      string `json:"timeend"`
+		SunsetEnd    string `json:"sunsetend"`
+		SunriseStart string `json:"sunrisestart"`
+	} `json:"times"`
+	Title string   `json:"title"`
+	Types []string `json:"types"`
 }
 
 // EventResponse represents the response from the /events endpoint.
